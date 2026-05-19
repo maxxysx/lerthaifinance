@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Documents & Disclosures — Lerthai Finance Limited</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0f1f3d;
+    --navy-mid: #1a3260;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --cream: #f8f5ef;
+    --white: #ffffff;
+    --gray: #6b7280;
+    --gray-light: #e5e7eb;
+    --text: #1a1a2e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* Header */
+  header {
+    background: var(--navy);
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  }
+
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 18px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo-block { display: flex; flex-direction: column; }
+
+  .logo-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.02em;
+  }
+
+  .logo-sub {
+    font-size: 0.7rem;
+    color: var(--gold);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  .header-meta {
+    text-align: right;
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.6;
+  }
+
+  .header-meta strong {
+    color: var(--gold-light);
+    font-weight: 500;
+  }
+
+  /* Hero strip */
+  .hero {
+    background: linear-gradient(135deg, var(--navy-mid) 0%, var(--navy) 60%);
+    padding: 48px 32px 40px;
+    border-bottom: 3px solid var(--gold);
+  }
+
+  .hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  .hero p {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.9rem;
+    font-weight: 300;
+    max-width: 560px;
+  }
+
+  /* Search */
+  .search-bar {
+    max-width: 1100px;
+    margin: 32px auto 0;
+    padding: 0 32px;
+  }
+
+  .search-wrap {
+    position: relative;
+  }
+
+  .search-wrap input {
+    width: 100%;
+    padding: 14px 20px 14px 48px;
+    border: 2px solid var(--gray-light);
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    background: var(--white);
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .search-wrap input:focus {
+    border-color: var(--gold);
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gray);
+    font-size: 1.1rem;
+  }
+
+  /* Main content */
+  main {
+    max-width: 1100px;
+    margin: 40px auto 60px;
+    padding: 0 32px;
+  }
+
+  /* Category section */
+  .category {
+    margin-bottom: 48px;
+    animation: fadeUp 0.4s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .category:nth-child(1) { animation-delay: 0.05s; }
+  .category:nth-child(2) { animation-delay: 0.1s; }
+  .category:nth-child(3) { animation-delay: 0.15s; }
+  .category:nth-child(4) { animation-delay: 0.2s; }
+  .category:nth-child(5) { animation-delay: 0.25s; }
+
+  .category-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--navy);
+  }
+
+  .category-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--navy);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  .category-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  .category-count {
+    margin-left: auto;
+    font-size: 0.75rem;
+    color: var(--gray);
+    background: var(--gray-light);
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+
+  /* Document grid */
+  .doc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 12px;
+  }
+
+  .doc-card {
+    background: var(--white);
+    border: 1px solid var(--gray-light);
+    border-radius: 8px;
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+
+  .doc-card:hover {
+    border-color: var(--gold);
+    box-shadow: 0 4px 16px rgba(201,168,76,0.15);
+    transform: translateY(-1px);
+  }
+
+  .doc-icon {
+    width: 40px;
+    height: 48px;
+    background: #fff5e6;
+    border: 1px solid #f0d89a;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    position: relative;
+  }
+
+  .doc-icon::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 10px; height: 10px;
+    background: #f0d89a;
+    border-bottom-left-radius: 4px;
+  }
+
+  .doc-info { flex: 1; min-width: 0; }
+
+  .doc-name {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1.4;
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .doc-meta {
+    font-size: 0.75rem;
+    color: var(--gray);
+  }
+
+  .doc-arrow {
+    color: var(--gold);
+    font-size: 1rem;
+    flex-shrink: 0;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .doc-card:hover .doc-arrow { opacity: 1; }
+
+  /* Empty state */
+  .empty-state {
+    text-align: center;
+    padding: 40px;
+    color: var(--gray);
+    font-size: 0.9rem;
+  }
+
+  /* No results */
+  #no-results {
+    display: none;
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--gray);
+  }
+
+  #no-results p { font-size: 1rem; margin-top: 8px; }
+
+  /* Footer */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.45);
+    text-align: center;
+    font-size: 0.75rem;
+    padding: 20px 32px;
+    line-height: 1.8;
+  }
+
+  footer a { color: var(--gold); text-decoration: none; }
+
+  /* Hidden */
+  .hidden { display: none !important; }
+
+  @media (max-width: 640px) {
+    .header-inner { padding: 16px 20px; }
+    .hero { padding: 32px 20px; }
+    .hero h1 { font-size: 1.5rem; }
+    main { padding: 0 20px; }
+    .search-bar { padding: 0 20px; }
+    .doc-grid { grid-template-columns: 1fr; }
+    .header-meta { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo-block">
+      <span class="logo-name">Lerthai Finance Limited</span>
+      <span class="logo-sub">BSE: 502250 &nbsp;|&nbsp; Incorporated 1979</span>
+    </div>
+    <div class="header-meta">
+      <strong>Investor Documents & Public Disclosures</strong><br>
+      Regulated under Companies Act, 2013 &nbsp;|&nbsp; SEBI (LODR) Regulations
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-inner">
+    <h1>Documents & Disclosures</h1>
+    <p>Official filings, financial reports, and regulatory disclosures of Lerthai Finance Limited as required under applicable laws and stock exchange regulations.</p>
+  </div>
+</div>
+
+<div class="search-bar" style="margin-top:32px;">
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="searchInput" placeholder="Search documents… e.g. Annual Report 2024, Q3 Results, Board Notice" oninput="filterDocs()" />
+  </div>
+</div>
+
+<main id="mainContent">
+
+  <!-- CATEGORY 1: Annual Returns -->
+  <div class="category" data-category="annual-returns">
+    <div class="category-header">
+      <div class="category-icon">📋</div>
+      <span class="category-title">Annual Returns</span>
+      <span class="category-count" id="count-annual-returns">0 documents</span>
+    </div>
+    <div class="doc-grid" id="grid-annual-returns">
+      <!-- Documents added here -->
+      <a class="doc-card" href="annual-return-fy2024.pdf" target="_blank" data-name="Annual Return FY 2023-24">
+        <div class="doc-icon">📄</div>
+        <div class="doc-info">
+          <div class="doc-name">Annual Return FY 2023–24</div>
+          <div class="doc-meta">Form MGT-7 &nbsp;·&nbsp; FY 2023–24</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-card" href="annual-return-fy2023.pdf" target="_blank" data-name="Annual Return FY 2022-23">
+        <div class="doc-icon">📄</div>
+        <div class="doc-info">
+          <div class="doc-name">Annual Return FY 2022–23</div>
+          <div class="doc-meta">Form MGT-7 &nbsp;·&nbsp; FY 2022–23</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- CATEGORY 2: Compliance Reports -->
+  <div class="category" data-category="compliance">
+    <div class="category-header">
+      <div class="category-icon">✅</div>
+      <span class="category-title">Compliance Reports</span>
+      <span class="category-count" id="count-compliance">0 documents</span>
+    </div>
+    <div class="doc-grid" id="grid-compliance">
+      <a class="doc-card" href="compliance-report-q4-fy25.pdf" target="_blank" data-name="Compliance Report Q4 FY25">
+        <div class="doc-icon">📄</div>
+        <div class="doc-info">
+          <div class="doc-name">Compliance Report Q4 FY 2024–25</div>
+          <div class="doc-meta">SEBI (LODR) &nbsp;·&nbsp; Q4 FY25</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-card" href="compliance-report-q3-fy25.pdf" target="_blank" data-name="Compliance Report Q3 FY25">
+        <div class="doc-icon">📄</div>
+        <div class="doc-info">
+          <div class="doc-name">Compliance Report Q3 FY 2024–25</div>
+          <div class="doc-meta">SEBI (LODR) &nbsp;·&nbsp; Q3 FY25</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-card" href="secretarial-compliance-fy24.pdf" target="_blank" data-name="Secretarial Compliance Report FY24">
+        <div class="doc-icon">📄</div>
+        <div class="doc-info">
+          <div class="doc-name">Secretarial Compliance Report FY 2023–24</div>
+          <div class="doc-meta">Regulation 24A &nbsp;·&nbsp; FY 2023–24</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- CATEGORY 3: Investor Presentation & Financials -->
+  <div class="category" data-category="financials">
+    <div class="category-header">
+      <div class="category-icon">📊</div>
+      <span class="category-title">Investor Presentation & Financials</span>
+      <span class="category-count" id="count-financials">0 documents</span>
+    </div>
+    <div class="doc-grid" id="grid-financials">
+      <a class="doc-card" href="investor-presentation-fy25.pdf" target="_blank" data-name="Investor Presentation FY25">
+        <div class="doc-icon">📄</div>
+        <div class="doc-info">
+          <div class="doc-name">Investor Presentation FY 2024–25</div>
+          <div class="doc-meta">Investor Relations &nbsp;·&nbsp; FY25</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-card" href="annual-report-fy24.pdf" target="_blank" data-name="Annual Report FY24">
+        <div class="doc-icon">📄</div>
+        <div class="doc-info">
+          <div class="doc-name">Annual Report FY 2023–24</div>
+          <div class="doc-meta">Audited Financials &nbsp;·&nbsp; FY 2023–24</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-card" href="q3-financial-results-fy25.pdf" target="_blank" data-name="Q3 Financial Results FY25">
+        <div class="doc-icon">📄</div>
+        <div class="doc-info">
+          <div class="doc-name">Q3 Financial Results FY 2024–25</div>
+          <div class="doc-meta">Unaudited Financials &nbsp;·&nbsp; Q3 FY25</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-card" href="q2-financial-results-fy25.pdf" target="_blank" data-name="Q2 Financial Results FY25">
+        <div class="doc-icon">📄</div>
+        <div class="doc-info">
+          <div class="doc-name">Q2 Financial Results FY 2024–25</div>
+          <div class="doc-meta">Unaudited Financials &nbsp;·&nbsp; Q2 FY25</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- CATEGORY 4: Policies & Other Related Matters -->
+  <div class="category" data-category="policies">
+    <div class="category-header">
+      <div class="category-icon">📜</div>
+      <span class="category-title">Policies & Other Related Matters</span>
+      <span class="category-count" id="count-policies">0 documents</span>
+    </div>
+    <div class="doc-grid" id="grid-policies">
+      <a class="doc-card" href="code-of-conduct.pdf" target="_blank" data-name="Code of Conduct">
+        <div class="doc-icon">📄</div>
+        <div class="doc-info">
+          <div class="doc-name">Code of Conduct</div>
+          <div class="doc-meta">Board & Senior Management</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-card" href="whistle-blower-policy.pdf" target="_blank" data-name="Whistle Blower Policy">
+        <div class="doc-icon">📄</div>
+        <div class="doc-info">
+          <div class="doc-name">Whistle Blower Policy</div>
+          <div class="doc-meta">Vigil Mechanism &nbsp;·&nbsp; Regulation 22</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-card" href="related-party-transaction-policy.pdf" target="_blank" data-name="Related Party Transaction Policy">
+        <div class="doc-icon">📄</div>
+        <div class="doc-info">
+          <div class="doc-name">Related Party Transaction Policy</div>
+          <div class="doc-meta">Regulation 23</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-card" href="nomination-remuneration-policy.pdf" target="_blank" data-name="Nomination & Remuneration Policy">
+        <div class="doc-icon">📄</div>
+        <div class="doc-info">
+          <div class="doc-name">Nomination & Remuneration Policy</div>
+          <div class="doc-meta">Section 178 &nbsp;·&nbsp; Companies Act 2013</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-card" href="risk-management-policy.pdf" target="_blank" data-name="Risk Management Policy">
+        <div class="doc-icon">📄</div>
+        <div class="doc-info">
+          <div class="doc-name">Risk Management Policy</div>
+          <div class="doc-meta">Regulation 17</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-card" href="dividend-distribution-policy.pdf" target="_blank" data-name="Dividend Distribution Policy">
+        <div class="doc-icon">📄</div>
+        <div class="doc-info">
+          <div class="doc-name">Dividend Distribution Policy</div>
+          <div class="doc-meta">Regulation 43A</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- CATEGORY 5: Public Disclosure & Shareholding Pattern -->
+  <div class="category" data-category="disclosures">
+    <div class="category-header">
+      <div class="category-icon">🏛️</div>
+      <span class="category-title">Public Disclosures & Shareholding Pattern</span>
+      <span class="category-count" id="count-disclosures">0 documents</span>
+    </div>
+    <div class="doc-grid" id="grid-disclosures">
+      <a class="doc-card" href="shareholding-q4-fy25.pdf" target="_blank" data-name="Shareholding Pattern Q4 FY25">
+        <div class="doc-icon">📄</div>
+        <div class="doc-info">
+          <div class="doc-name">Shareholding Pattern Q4 FY 2024–25</div>
+          <div class="doc-meta">Regulation 31 &nbsp;·&nbsp; March 2025</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-card" href="shareholding-q3-fy25.pdf" target="_blank" data-name="Shareholding Pattern Q3 FY25">
+        <div class="doc-icon">📄</div>
+        <div class="doc-info">
+          <div class="doc-name">Shareholding Pattern Q3 FY 2024–25</div>
+          <div class="doc-meta">Regulation 31 &nbsp;·&nbsp; December 2024</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-card" href="corporate-governance-report-fy24.pdf" target="_blank" data-name="Corporate Governance Report FY24">
+        <div class="doc-icon">📄</div>
+        <div class="doc-info">
+          <div class="doc-name">Corporate Governance Report FY 2023–24</div>
+          <div class="doc-meta">Regulation 27 &nbsp;·&nbsp; FY 2023–24</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-card" href="bse-disclosures-fy25.pdf" target="_blank" data-name="BSE Disclosures FY25">
+        <div class="doc-icon">📄</div>
+        <div class="doc-info">
+          <div class="doc-name">BSE Exchange Filings FY 2024–25</div>
+          <div class="doc-meta">BSE Code: 502250 &nbsp;·&nbsp; FY25</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-card" href="newspaper-advertisements-fy25.pdf" target="_blank" data-name="Newspaper Advertisements FY25">
+        <div class="doc-icon">📄</div>
+        <div class="doc-info">
+          <div class="doc-name">Newspaper Advertisements FY 2024–25</div>
+          <div class="doc-meta">Regulation 47 &nbsp;·&nbsp; FY25</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <div id="no-results">
+    <div style="font-size:2rem;">🔍</div>
+    <p>No documents found matching your search.</p>
+  </div>
+
+</main>
+
+<footer>
+  <strong style="color:rgba(255,255,255,0.7)">Lerthai Finance Limited</strong> &nbsp;|&nbsp; BSE Code: 502250 &nbsp;|&nbsp; CIN: L65910MH1979PLC021699<br>
+  Incorporated in 1979 &nbsp;|&nbsp; Regulated under Companies Act, 2013 &nbsp;|&nbsp; SEBI (LODR) Regulations, 2015<br>
+  For queries: <a href="mailto:compliance@lerthaifinance.com">compliance@lerthaifinance.com</a> &nbsp;|&nbsp; <a href="https://www.lerthaifinance.com" target="_blank">www.lerthaifinance.com</a>
+</footer>
+
+<script>
+  // Count documents in each category
+  function updateCounts() {
+    const categories = ['annual-returns', 'compliance', 'financials', 'policies', 'disclosures'];
+    categories.forEach(cat => {
+      const grid = document.getElementById('grid-' + cat);
+      const visible = grid ? grid.querySelectorAll('.doc-card:not(.hidden)').length : 0;
+      const el = document.getElementById('count-' + cat);
+      if (el) el.textContent = visible + (visible === 1 ? ' document' : ' documents');
+    });
+  }
+
+  // Search/filter
+  function filterDocs() {
+    const query = document.getElementById('searchInput').value.toLowerCase().trim();
+    const cards = document.querySelectorAll('.doc-card');
+    const categories = document.querySelectorAll('.category');
+    let totalVisible = 0;
+
+    cards.forEach(card => {
+      const name = (card.getAttribute('data-name') || '').toLowerCase();
+      const text = card.innerText.toLowerCase();
+      const match = !query || name.includes(query) || text.includes(query);
+      card.classList.toggle('hidden', !match);
+      if (match) totalVisible++;
+    });
+
+    // Hide empty categories
+    categories.forEach(cat => {
+      const grid = cat.querySelector('.doc-grid');
+      const visibleCards = grid ? grid.querySelectorAll('.doc-card:not(.hidden)').length : 0;
+      cat.classList.toggle('hidden', visibleCards === 0);
+    });
+
+    document.getElementById('no-results').style.display = totalVisible === 0 ? 'block' : 'none';
+    updateCounts();
+  }
+
+  // Init counts
+  updateCounts();
+</script>
+</body>
+</html>
